@@ -1,3 +1,4 @@
+# Credit: Wicked Cool Shell Scripts - NoStarch Press
 archivedir="$HOME/.deleted-files"
 realrm="$(which rm)"
 copy="$(which cp) -R"
