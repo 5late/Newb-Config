@@ -10,10 +10,11 @@ if [ -f "$alias_file" ]; then
     sleep 1
     echo "Updated rm command."
   fi
-  echo -n "Would you like to use the cp command with recommended flags? [y]"
+  echo -n "Would you like to use the cp and mv command with recommended flags? [y]"
   read cpflagchoice
   if [ $cpflagchoice == "y" ]; then
     echo "alias cp=cp -iv" >> $HOME/.bash/aliases.bash
+    echo "alias mv=mv -iv" >> $HOME/.bash/aliases.bash
     sleep 1
     echo "Updated cp command."
   fi
@@ -26,10 +27,11 @@ else
     sleep 1
     echo "Updated rm command."
   fi
-  echo -n "Would you like to use the cp command with recommended flags? [y]"
+  echo -n "Would you like to use the cp and mv command with recommended flags? [y]"
   read cpflagchoice
   if [ $cpflagchoice == "y" ]; then
     echo "alias cp=cp -iv" >> $HOME/.bashrc
+    echo "alias mv=mv -iv" >> $HOME/.bashrc
     sleep 1
     echo "Updated cp command."
   fi
