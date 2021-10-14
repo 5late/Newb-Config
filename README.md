@@ -22,9 +22,9 @@ The contents of this repo contain scripts and aliases that may be useful to newb
 
 Run the following commands to install the scripts.
 
-``git clone https://github.com/5late/Newb-Scripts``
+``git clone https://github.com/5late/Newb-Config``
 
-``cd Newb-Scripts``
+``cd Newb-Config``
 
 ``bash install.sh``
 
