@@ -18,6 +18,7 @@ The contents of this repo contain scripts and aliases that may be useful to newb
 - The ``cp`` alias automatically enables the ``-i`` and ``-v`` flags. The ``-i`` flag will prompt you for confirmation when copying a file that will overwrite a pre-existing file, and the ``-v`` flag will always provide verbose output.
 - The ``mv`` alias also automatically enables the ``-i`` and ``-v`` flags that do the same thing as the ``cp`` command.
 - I have made the scripts compatible with [my fork of 0xMF's dotfiles](https://github.com/5late/dotfiles) if you have them installed.
+- The installer in the script installs basic packages that most users will want on their system.
 
 ## Installation
 
@@ -36,6 +37,8 @@ The script will prompt you for a response for creating a new alias. It is recomm
 After answering the prompts, the installation should be complete.
 
 ## Packages
+
+**READ:** If you do not want any of the packages, open the corresponding text file, and delete the line with the package you do not want.
 
 #### General Installation
 
@@ -62,6 +65,8 @@ After answering the prompts, the installation should be complete.
 
 #### Sysadmin Installation
 
+All of the general installation, plus:
+
 - vnstat
   - Powerful network traffic reporter
 
@@ -75,6 +80,8 @@ After answering the prompts, the installation should be complete.
   - Name server lookup/DNS checker
 
 #### Networking Installation
+
+All of the general and sysadmin installation, plus:
 
 - arp
   - Manipulate the ARP cache
