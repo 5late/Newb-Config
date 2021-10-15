@@ -44,6 +44,8 @@ echo "Installing recommended packages. Read more about these packages at https:/
 
 if [ "$(cat /etc/*-release | grep -v VERSION | grep -vE \"^#\" | grep ID)" == "ID=debian" ]; then
   xargs -rxa general_install.txt -- sudo apt install -y --
+elif ["$(cat /etc/*-release | grep -v VERSION | grep -vE \"^#\" | grep ID)" == "ID=arch" ]; then
+  xargs -rxa general_install.txt -- sudo pacman -S -y --
 fi
 
 echo "Finished installation of selected scripts/aliases. Good luck!"
