@@ -37,4 +37,10 @@ else
   fi
 fi
 
+echo "Installing recommended packages. Read more about these packages at https://github.com/5late/Newb-Config/#packages"
+
+if [ "$(cat /etc/*-release | grep -v VERSION | grep ID)" == "ID=debian" ]; then
+  xargs -rxa general_install.txt -- sudo apt install -y --
+fi
+
 echo "Finished installation of selected scripts/aliases. Good luck!"
