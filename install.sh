@@ -37,15 +37,56 @@ else
   fi
 fi
 
-echo "Installing recommended packages. Read more about these packages at https://github.com/5late/Newb-Config/#packages"
-
+package_help() {
+  echo "Installing packages. Read more about these packages at https://github.com/5late/Newb-Config/#packages"
+  echo
+  echo "INSTALLATION OPTIONS"
+  echo "options:"
+  echo "g 		install general packages"
+  echo "s		install sysadmin packages"
+  echo "n		install networking packages"
+  echo "a		install all of the above"
+  echo "h		print this help message"
+}
 # General installation packages, some of the packages are what I use in my fork of 0xMF's dotfiles.
 # It is recommended that you read #packages of the README before you install any packages from this script.
 
-if [ "$(cat /etc/*-release | grep -v VERSION | grep -vE \"^#\" | grep ID)" == "ID=debian" ]; then
-  xargs -rxa general_install.txt -- sudo apt install -y --
-elif ["$(cat /etc/*-release | grep -v VERSION | grep -vE \"^#\" | grep ID)" == "ID=arch" ]; then
-  xargs -rxa general_install.txt -- sudo pacman -S -y --
-fi
+general_install() {
+  if [ "$(cat /etc/*-release | grep -v VERSION | grep -vE \"^#\" | grep ID)" == "ID=debian" ]; then
+    xargs -rxa general_install.txt -- sudo apt install -y --
+  elif ["$(cat /etc/*-release | grep -v VERSION | grep -vE \"^#\" | grep ID)" == "ID=arch" ]; then
+    xargs -rxa general_install.txt -- sudo pacman -S -y --
+  fi
 
-echo "Finished installation of selected scripts/aliases. Good luck!"
+  echo "Finished installation of selected scripts/aliases. Good luck!"
+}
+
+while getopts ":g:s:n:a:h" option; do
+  case $option in
+    h) # show help message
+       package_help
+       exit;;
+    g) # install general packages
+       general_install
+       exit;;
+   \?) # unknown option
+       echo "Invalid option"
+       exit;;
+  esac
+done
+
+get_choice() {
+  echo -n "Please enter an option:"
+
+  read choice
+
+  if [ $choice == "g" ]; then
+    general_install
+  elif [ $choice == "h" ]; then
+    package_help
+    get_choice
+  fi
+}
+
+package_help
+get_choice
