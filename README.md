@@ -34,3 +34,22 @@ The script will prompt you for a response for creating a new alias. It is recomm
 **INFO:** The script will *only* work with 'y'. Answers such as 'yes', 'ok', 'sure' will not be accepted.
 
 After answering the prompts, the installation should be complete.
+
+## Packages
+
+#### General Installation
+
+- Neofetch
+  - Cool ASCII Art
+  - Syncs with my fork of [dotfiles](https://github.com/5late/dotfiles) for log-in art
+
+- Linux Logo
+  - Cool ASCII Art (again)
+  - Overrides Neofetch sync with my fork of [dotfiles](https://github.com/5late/dotfiles) for log-in art
+
+- Rsync
+  - Very powerful copy tool
+
+- Python & Pip
+  - Comes pre-installed on most systems
+  - Base dependency for many other programs

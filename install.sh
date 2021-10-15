@@ -39,7 +39,10 @@ fi
 
 echo "Installing recommended packages. Read more about these packages at https://github.com/5late/Newb-Config/#packages"
 
-if [ "$(cat /etc/*-release | grep -v VERSION | grep ID)" == "ID=debian" ]; then
+# General installation packages, some of the packages are what I use in my fork of 0xMF's dotfiles.
+# It is recommended that you read #packages of the README before you install any packages from this script.
+
+if [ "$(cat /etc/*-release | grep -v VERSION | grep -vE \"^#\" | grep ID)" == "ID=debian" ]; then
   xargs -rxa general_install.txt -- sudo apt install -y --
 fi
 
