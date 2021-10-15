@@ -53,3 +53,49 @@ After answering the prompts, the installation should be complete.
 - Python & Pip
   - Comes pre-installed on most systems
   - Base dependency for many other programs
+
+- htop
+  - System resource monitor 
+
+- fakeroot
+  - Required for installing many packages, usually ships default with most distros
+
+#### Sysadmin Installation
+
+- vnstat
+  - Powerful network traffic reporter
+
+- Apache2
+  - http server, similar to nginx
+
+- nmap
+  - IP Port scanner
+
+- dig/nslookup
+  - Name server lookup/DNS checker
+
+#### Networking Installation
+
+- arp
+  - Manipulate the ARP cache
+
+- wireshark
+  - Powerful GUI for reading TCP dump files (``.pcap``)
+
+- tcpdump
+  - Network packet sniffer
+
+- nping
+  - Ping a specifc port, using either ``tcp`` or ``udp``
+
+- net-tools
+  - Plenty of networking tools
+
+- tcpflow
+  - Packet sniffer/reader
+
+- telnet
+  - Insecure ssh text connection
+
+- airemon-ng/aireplay-ng
+  - Very powerful packet generator
