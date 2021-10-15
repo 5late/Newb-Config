@@ -1,5 +1,7 @@
+# Credit: Wicked Cool Shell Scipts, No Starch Press
+# Original script from WCSS differs slightly
+
 removelog="$HOME/.removelog"
-location="$PWD"
 
 if [ $# -eq 0 ] ; then
   echo "Usage: $0 [-s] list of files and directores" >&2
