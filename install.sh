@@ -52,13 +52,32 @@ package_help() {
 # It is recommended that you read #packages of the README before you install any packages from this script.
 
 general_install() {
-  if [ "$(cat /etc/*-release | grep -v VERSION | grep -vE \"^#\" | grep ID)" == "ID=debian" ]; then
+  if [ "$(cat /etc/*-release | grep -v VERSION | grep -vE \"^\#\" | grep ID)" == "ID=debian" ]; then
     xargs -rxa general_install.txt -- sudo apt install -y --
-  elif ["$(cat /etc/*-release | grep -v VERSION | grep -vE \"^#\" | grep ID)" == "ID=arch" ]; then
+  elif ["$(cat /etc/*-release | grep -v VERSION | grep -vE \"^\#\" | grep ID)" == "ID=arch" ]; then
     xargs -rxa general_install.txt -- sudo pacman -S -y --
   fi
 
   echo "Finished installation of selected scripts/aliases. Good luck!"
+}
+
+sysadmin_install() {
+  general_install
+  if [ "$(cat /etc/*-release | grep -v VERSION | grep -vE \"^\#\" | grep ID)" == "ID=debian" ]; then
+    xargs -rxa sysadmin_install.txt -- sudo apt install -y --
+  elif ["$(cat /etc/*-release | grep -v VERSION | grep -vE \"^\#\" | grep ID)" == "ID=arch" ]; then
+    xargs -rxa sysadmin_install.txt -- sudo pacman -S -y --
+  fi
+}
+
+network_install() {
+  general_install
+  sysadmin_install
+  if [ "$(cat /etc/*-release | grep -v VERSION | grep -vE \"^\#\" | grep ID)" == "ID=debian" ]; then
+    xargs -rxa network_install.txt -- sudo apt install -y --
+  elif ["$(cat /etc/*-release | grep -v VERSION | grep -vE \"^\#\" | grep ID)" == "ID=arch" ]; then
+    xargs -rxa network_install.txt -- sudo pacman -S -y --
+  fi
 }
 
 while getopts ":g:s:n:a:h" option; do
@@ -68,6 +87,15 @@ while getopts ":g:s:n:a:h" option; do
        exit;;
     g) # install general packages
        general_install
+       exit;;
+    s) # install sysadmin packages
+       sysadmin_install
+       exit;;
+    n) # install networking packages
+       network_install
+       exit;;
+    a) # install all packages (same as networking)
+       network_install
        exit;;
    \?) # unknown option
        echo "Invalid option"
@@ -82,6 +110,10 @@ get_choice() {
 
   if [ $choice == "g" ]; then
     general_install
+  elif [ $choice == "s" ]; then
+    sysadmin_install
+  elif [ $choice == "n" ] || [ $choice == "a" ]; then
+    network_install
   elif [ $choice == "h" ]; then
     package_help
     get_choice
