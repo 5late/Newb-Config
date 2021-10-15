@@ -6,7 +6,10 @@ if [ -f "$alias_file" ]; then
   echo -n "Would you like to use the recommended 'newrm' command? [y]"
   read newrmchoice
   if [ $newrmchoice == "y" ]; then
-    echo "alias rm=$newb_location/scripts/newrm.bash" >> $HOME/.bash/aliases.bash
+    mkdir $HOME/.config/newb/
+    cp scripts/newrm.sh $HOME/.config/newb/
+    cp scripts/logrm.sh $HOME/.config/newb/
+    echo "alias rm=$HOME/.config/newb/scripts/logrm.sh" >> $HOME/.bash/aliases.bash
     sleep 1
     echo "Updated rm command."
   fi
