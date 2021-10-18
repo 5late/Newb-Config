@@ -5,4 +5,4 @@ python3
 python3-pip
 htop
 fakeroot
-
+locate
