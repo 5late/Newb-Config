@@ -1,42 +1,48 @@
+# 0xMF dotfiles aliases file
 alias_file=$HOME/.bash/aliases.bash
+# Get location of scripts within filesystem
 newb_location="$PWD"
 
+# If 0xMF dotfiles file exists
 if [ -f "$alias_file" ]; then
   echo "Found 0xMF dotfile alias file."
   echo -n "Would you like to use the recommended 'newrm' command? [y]"
   read newrmchoice
   if [ $newrmchoice == "y" ]; then
-    mkdir $HOME/.config/newb/
-    cp scripts/newrm.sh $HOME/.config/newb/
-    cp scripts/logrm.sh $HOME/.config/newb/
-    echo "alias rm=$HOME/.config/newb/logrm.sh" >> $HOME/.bash/aliases.bash
-    echo "alias cleanarchive='rm -rf $HOME/.deleted-files/*'" >> $HOME/.bash/aliases.bash
+    mkdir $HOME/.config/newb/ # make directory for the new rm commands
+    cp scripts/newrm.sh $HOME/.config/newb/ # copy the newrm script
+    cp scripts/logrm.sh $HOME/.config/newb/ # copy the logrm script
+    echo "alias rm=$HOME/.config/newb/logrm.sh" >> $HOME/.bash/aliases.bash # create the alias
+    echo "alias cleanarchive='rm -rf $HOME/.deleted-files/*'" >> $HOME/.bash/aliases.bash # create an alias to clear out the deleted files directory
     sleep 1
     echo "Updated rm command."
   fi
   echo -n "Would you like to use the cp and mv command with recommended flags? [y]"
   read cpflagchoice
   if [ $cpflagchoice == "y" ]; then
-    echo "alias cp='cp -iv'" >> $HOME/.bash/aliases.bash
-    echo "alias mv='mv -iv'" >> $HOME/.bash/aliases.bash
+    echo "alias cp='cp -iv'" >> $HOME/.bash/aliases.bash # create the alias for cp
+    echo "alias mv='mv -iv'" >> $HOME/.bash/aliases.bash # create the alias for mv
     sleep 1
     echo "Updated cp command."
   fi
 else
-  echo "0xMF dotfiles alias file not found, will append to $HOME/.bashrc"
+  echo "0xMF dotfiles alias file not found, will append to $HOME/.bashrc" # if no alias file, use .bashrc
   echo -n "Would you like to use the recommened 'newrm' command? [y]"
   read newrmchoice
   if [ $newrmchoice == "y" ]; then
-    echo "alias rm=$newb_location/newrm.bash" >> $HOME/.bashrc
-    echo "alias cleanarchive='rm -rf $HOME/.deleted-files/*'" >> $HOME/.bashrc
+    mkdir $HOME/.config/newb/ # make directory for the new rm commands
+    cp scripts/newrm.sh $HOME/.config/newb/ # copy the newrm script
+    cp scripts/logrm.sh $HOME/.config/newb/ # copy the logrm script
+    echo "alias rm=$HOME/.config/newb/logrm.sh" >> $HOME/.bashrc # create the alias
+    echo "alias cleanarchive='rm -rf $HOME/.deleted-files/*'" >> $HOME/.bashrc # create an alias to clear out the deleted files directory
     sleep 1
     echo "Updated rm command."
   fi
   echo -n "Would you like to use the cp and mv command with recommended flags? [y]"
   read cpflagchoice
   if [ $cpflagchoice == "y" ]; then
-    echo "alias cp='cp -iv'" >> $HOME/.bashrc
-    echo "alias mv='mv -iv'" >> $HOME/.bashrc
+    echo "alias cp='cp -iv'" >> $HOME/.bashrc # create the alias for cp
+    echo "alias mv='mv -iv'" >> $HOME/.bashrc # create the alias for mv
     sleep 1
     echo "Updated cp command."
   fi
@@ -57,16 +63,19 @@ package_help() {
 # It is recommended that you read #packages of the README before you install any packages from this script.
 
 general_install() {
-  if [ "$(cat /etc/*-release | grep -v VERSION | grep -vE \"^\#\" | grep ID)" == "ID=debian" ]; then
-    xargs -rxa general_install.txt -- sudo apt install -y --
-  elif ["$(cat /etc/*-release | grep -v VERSION | grep -vE \"^\#\" | grep ID)" == "ID=arch" ]; then
-    xargs -rxa general_install.txt -- sudo pacman -S -y --
+  if [ "$(cat /etc/*-release | grep -v VERSION | grep -vE \"^\#\" | grep ID)" == "ID=debian" ]; then # if debian
+    xargs -rxa general_install.txt -- sudo apt install -y -- # read the text file to install all packages
+  elif ["$(cat /etc/*-release | grep -v VERSION | grep -vE \"^\#\" | grep ID)" == "ID=arch" ]; then # if arch
+    xargs -rxa general_install.txt -- sudo pacman -S -y -- # read the text file to install all packages
   fi
 
   echo "-------------------------------------------------------------------------------------"
   echo "Package locate installed. Please run sudo updatedb to update the filesystem database."
   echo "Finished installation of selected scripts/aliases. Good luck!"
 }
+
+# Sysadmin installation packages, all of the packages from the general installation are installed as well
+# Please read #packages of the README
 
 sysadmin_install() {
   general_install
@@ -77,6 +86,9 @@ sysadmin_install() {
   fi
 }
 
+# Network installation packages, all of the packages from general installation and sysadmin installation are installed as well
+# Please read #packages of the README
+
 network_install() {
   general_install
   sysadmin_install
@@ -86,6 +98,8 @@ network_install() {
     xargs -rxa network_install.txt -- sudo pacman -S -y --
   fi
 }
+
+# allow options to be used for the package installation
 
 while getopts ":g:s:n:a:h" option; do
   case $option in
@@ -113,7 +127,7 @@ done
 get_choice() {
   echo -n "Please enter an option:"
 
-  read choice
+  read choice # get and install the corresponding option
 
   if [ $choice == "g" ]; then
     general_install
