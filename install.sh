@@ -9,15 +9,16 @@ if [ -f "$alias_file" ]; then
     mkdir $HOME/.config/newb/
     cp scripts/newrm.sh $HOME/.config/newb/
     cp scripts/logrm.sh $HOME/.config/newb/
-    echo "alias rm=$HOME/.config/newb/scripts/logrm.sh" >> $HOME/.bash/aliases.bash
+    echo "alias rm=$HOME/.config/newb/logrm.sh" >> $HOME/.bash/aliases.bash
+    echo "alias cleanarchive='rm -rf $HOME/.deleted-files/*'" >> $HOME/.bash/aliases.bash
     sleep 1
     echo "Updated rm command."
   fi
   echo -n "Would you like to use the cp and mv command with recommended flags? [y]"
   read cpflagchoice
   if [ $cpflagchoice == "y" ]; then
-    echo "alias cp=cp -iv" >> $HOME/.bash/aliases.bash
-    echo "alias mv=mv -iv" >> $HOME/.bash/aliases.bash
+    echo "alias cp='cp -iv'" >> $HOME/.bash/aliases.bash
+    echo "alias mv='mv -iv'" >> $HOME/.bash/aliases.bash
     sleep 1
     echo "Updated cp command."
   fi
@@ -26,15 +27,16 @@ else
   echo -n "Would you like to use the recommened 'newrm' command? [y]"
   read newrmchoice
   if [ $newrmchoice == "y" ]; then
-    echo "alias rm=$newb_location/scripts/newrm.bash" >> $HOME/.bashrc
+    echo "alias rm=$newb_location/newrm.bash" >> $HOME/.bashrc
+    echo "alias cleanarchive='rm -rf $HOME/.deleted-files/*'" >> $HOME/.bashrc
     sleep 1
     echo "Updated rm command."
   fi
   echo -n "Would you like to use the cp and mv command with recommended flags? [y]"
   read cpflagchoice
   if [ $cpflagchoice == "y" ]; then
-    echo "alias cp=cp -iv" >> $HOME/.bashrc
-    echo "alias mv=mv -iv" >> $HOME/.bashrc
+    echo "alias cp='cp -iv'" >> $HOME/.bashrc
+    echo "alias mv='mv -iv'" >> $HOME/.bashrc
     sleep 1
     echo "Updated cp command."
   fi
