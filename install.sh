@@ -63,6 +63,8 @@ general_install() {
     xargs -rxa general_install.txt -- sudo pacman -S -y --
   fi
 
+  echo "-------------------------------------------------------------------------------------"
+  echo "Package locate installed. Please run sudo updatedb to update the filesystem database."
   echo "Finished installation of selected scripts/aliases. Good luck!"
 }
 

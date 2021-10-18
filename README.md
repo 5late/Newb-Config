@@ -74,6 +74,12 @@ After answering the prompts, the installation should be complete.
 - fakeroot
   - Required for installing many packages, usually ships default with most distros
 
+- locate
+  - locate is a fast and easy to use tool to find any file in the filesystem
+  - locate also install updatedb, which updates the filesystems database for new files
+  - updatedb should run a daily cron job to update for new files
+
+
 #### Sysadmin Installation
 
 All of the general installation, plus:
