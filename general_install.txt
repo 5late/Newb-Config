@@ -1,5 +1,6 @@
 neofetch
 linuxlogo
+figlet
 rsync
 python3
 python3-pip
