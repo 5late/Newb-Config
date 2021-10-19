@@ -49,7 +49,7 @@ else
 fi
 
 package_help() {
-  echo "Installing packages. Read more about these packages at https://github.com/5late/Newb-Config/#packages"
+  echo "Package installer. Read more about these packages at https://github.com/5late/Newb-Config/#packages"
   echo
   echo "INSTALLATION OPTIONS"
   echo "options:"
@@ -136,6 +136,9 @@ get_choice() {
   elif [ $choice == "n" ] || [ $choice == "a" ]; then
     network_install
   elif [ $choice == "h" ]; then
+    package_help
+    get_choice
+  else
     package_help
     get_choice
   fi
