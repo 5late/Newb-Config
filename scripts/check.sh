@@ -1,4 +1,5 @@
 # Credit: Wicked Cool Shell Scripts, New Starch Press
+# There are some noticible differences such as the option to remove a note.
 
 rememberfile="$HOME/.remember"
 
