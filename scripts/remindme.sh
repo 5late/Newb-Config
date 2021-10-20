@@ -1,3 +1,5 @@
+# Credit: Wicked Cool Shell Scripts, New Starch Press
+
 rememberfile="$HOME/.remember"
 
 if [ $# -eq 0 ] ; then
