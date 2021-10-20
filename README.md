@@ -13,12 +13,22 @@ The contents of this repo contain scripts and aliases that may be useful to newb
 
 ## Manual
 
+### Scripts
+
 #### rm command
 - The traditional ``rm`` command is replaced with an alias which points to the [``logrm`` script.](./scripts/logrm.sh) The ``logrm`` script logs all deletions to a hidden file in the users home directory - ``.removelog``.
   - The ``logrm`` file then calls upon the ``newrm`` script described below, to perform the actual deletion of the selected file(s).
   - To skip logging, use the ``-s`` flag.
 - The [``newrm`` script](./scripts/newrm.sh) replaces the traditional ``rm`` command with a script that automatically backs up all deleted items to a hidden directory in the home folder - ``$HOME/.deleted-files/``
   - To force a delete without backing up the file(s), use the regular ``rm`` command with the ``-f`` (force) flag. Ex: ``rm -f example.txt``
+
+#### stickynote scripts
+- Add a short note with ``addnote NOTE HERE``
+  - To add a longer note, simply run ``addnote`` alone. The terminal will print a empty line for you to begin typing on. Once you are done, you can exit with ``^D``.
+- To see your notes, you can just run ``check``.
+  - To search for a specific note, you can run ``check SEARCH TERM HERE``, the entire line containing the term will be returned.
+
+### Aliases
 
 #### cp and mv aliases
 - The ``cp`` alias automatically enables the ``-i`` and ``-v`` flags. The ``-i`` flag will prompt you for confirmation when copying a file that will overwrite a pre-existing file, and the ``-v`` flag will always provide verbose output.
