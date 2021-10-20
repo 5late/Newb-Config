@@ -25,6 +25,16 @@ if [ -f "$alias_file" ]; then
     sleep 1
     echo "Updated cp command."
   fi
+  echo -n "Would you like to set up sticky notes?"
+  read stickynotechoice
+  if [ $stickynotechoice == "y" ] ; then
+    cp scripts/remindme.sh $HOME/.config/newb/ # copy the remind me script
+    cp scripts/check.sh $HOME/.config/newb/ # copy the check script
+    echo "alias addnote=$HOME/.config/newb/remindme.sh" >> $HOME/.bash/aliases.bash
+    echo "alias check=$HOME/.config/newb/check.sh" >> $HOME/.bash/aliases.bash
+    sleep 1
+    echo "Added the addnote and check script aliases. To learn more about these scripts and how to use them, read #scripts in the README"
+  fi
 else
   echo "0xMF dotfiles alias file not found, will append to $HOME/.bashrc" # if no alias file, use .bashrc
   echo -n "Would you like to use the recommened 'newrm' command? [y]"
@@ -45,6 +55,16 @@ else
     echo "alias mv='mv -iv'" >> $HOME/.bashrc # create the alias for mv
     sleep 1
     echo "Updated cp command."
+  fi
+  echo -n "Would you like to set up sticky notes?"
+  read stickynotechoice
+  if [ $stickynotechoice == "y" ] ; then
+    cp scripts/remindme.sh $HOME/.config/newb/ # copy the remind me script
+    cp scripts/check.sh $HOME/.config/newb/ # copy the check script
+    echo "alias addnote=$HOME/.config/newb/remindme.sh" >> $HOME/.bashrc
+    echo "alias check=$HOME/.config/newb/check.sh" >> $HOME/.bashrc
+    sleep 1
+    echo "Added the addnote and check script aliases. To learn more about these scripts and how to use them, read #scripts in the README"
   fi
 fi
 

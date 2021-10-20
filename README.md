@@ -61,6 +61,10 @@ After answering the prompts, the installation should be complete.
   - Cool ASCII Art (again)
   - Overrides Neofetch sync with my fork of [dotfiles](https://github.com/5late/dotfiles) for log-in art
 
+- figlet
+  - Text-to-Large-Letters formatter
+  - Works alongside the neofetch/linux logo ascii art for my fork of [dotfiles](https://github.com/5late/dotfiles) for log-in art
+
 - Rsync
   - Very powerful copy tool
 
