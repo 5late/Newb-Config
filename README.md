@@ -11,6 +11,8 @@ To jump to the installation instructions, [click here.](#Installation)
 
 The contents of this repo contain scripts and aliases that may be useful to newbies in Linux. Commands such as ``rm`` can be intimidating due to their nature of being destructive and irreversible.
 
+There are also some useful utilites such as sticky notes which can be helpful for productivity.
+
 ## Manual
 
 ### Scripts
@@ -27,6 +29,7 @@ The contents of this repo contain scripts and aliases that may be useful to newb
   - To add a longer note, simply run ``addnote`` alone. The terminal will print a empty line for you to begin typing on. Once you are done, you can exit with ``^D``.
 - To see your notes, you can just run ``check``.
   - To search for a specific note, you can run ``check SEARCH TERM HERE``, the entire line containing the term will be returned.
+  - To remove a specific note, run ``check rm REMOVE TERM HERE``, and all lines containing that term will be removed.
 
 ### Aliases
 
