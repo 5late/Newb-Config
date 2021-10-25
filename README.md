@@ -4,15 +4,11 @@ These are some basic beginner scripts that will make your life in the Linux Comm
 
 Some of the aliases and scripts can aid in making newer users more comfortabe with the command line.
 
-------------------
 |Table of Contents|
 | --------------- |
 | [Script Description](#scripts) |
-| --------------- |
 | [Alias Description](#aliases) |
-| --------------- |
 | [Installation](#installation) |
-| --------------- |
 | [Packages](#packages) |
 
 
