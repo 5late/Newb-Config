@@ -8,13 +8,14 @@ if [ ! -f $rememberfile ] ; then
   exit 1
 fi
 if [ $# -eq 0 ] ; then
-  more $rememberfile
+  $EDITOR $rememberfile
+  exit 0
 fi
 if [ "$1" == "rm" ] ; then
   shift
   sed -i "/$@/d" $rememberfile || echo "Error! Please wrap your remove term in ''." && exit 1
   echo "Removed all lines containing $@."
 else
-  grep -i -- "$@" $rememberfile | ${PAGER:-more}
+  grep -i -- "$@" $rememberfile | ${PAGER:-less}
 fi
 exit 0
