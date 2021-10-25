@@ -6,7 +6,7 @@ newb_location="$PWD"
 # If 0xMF dotfiles file exists
 if [ -f "$alias_file" ]; then
   echo "Found 0xMF dotfile alias file."
-  echo -n "Would you like to use the recommended 'newrm' command? [y]"
+  echo -n "Would you like to use the recommended 'newrm' command? [y] "
   read newrmchoice
   if [ $newrmchoice == "y" ]; then
     mkdir $HOME/.config/newb/ # make directory for the new rm commands
@@ -17,7 +17,7 @@ if [ -f "$alias_file" ]; then
     sleep 1
     echo "Updated rm command."
   fi
-  echo -n "Would you like to use the cp and mv command with recommended flags? [y]"
+  echo -n "Would you like to use the cp and mv command with recommended flags? [y] "
   read cpflagchoice
   if [ $cpflagchoice == "y" ]; then
     echo "alias cp='cp -iv'" >> $HOME/.bash/aliases.bash # create the alias for cp
@@ -25,7 +25,7 @@ if [ -f "$alias_file" ]; then
     sleep 1
     echo "Updated cp command."
   fi
-  echo -n "Would you like to set up sticky notes?"
+  echo -n "Would you like to set up sticky notes? [y] "
   read stickynotechoice
   if [ $stickynotechoice == "y" ] ; then
     cp scripts/remindme.sh $HOME/.config/newb/ # copy the remind me script
@@ -37,7 +37,7 @@ if [ -f "$alias_file" ]; then
   fi
 else
   echo "0xMF dotfiles alias file not found, will append to $HOME/.bashrc" # if no alias file, use .bashrc
-  echo -n "Would you like to use the recommened 'newrm' command? [y]"
+  echo -n "Would you like to use the recommened 'newrm' command? [y] "
   read newrmchoice
   if [ $newrmchoice == "y" ]; then
     mkdir $HOME/.config/newb/ # make directory for the new rm commands
@@ -48,7 +48,7 @@ else
     sleep 1
     echo "Updated rm command."
   fi
-  echo -n "Would you like to use the cp and mv command with recommended flags? [y]"
+  echo -n "Would you like to use the cp and mv command with recommended flags? [y] "
   read cpflagchoice
   if [ $cpflagchoice == "y" ]; then
     echo "alias cp='cp -iv'" >> $HOME/.bashrc # create the alias for cp
@@ -56,7 +56,7 @@ else
     sleep 1
     echo "Updated cp command."
   fi
-  echo -n "Would you like to set up sticky notes?"
+  echo -n "Would you like to set up sticky notes? [y] "
   read stickynotechoice
   if [ $stickynotechoice == "y" ] ; then
     cp scripts/remindme.sh $HOME/.config/newb/ # copy the remind me script
@@ -66,6 +66,18 @@ else
     sleep 1
     echo "Added the addnote and check script aliases. To learn more about these scripts and how to use them, read #scripts in the README"
   fi
+fi
+
+echo -n "Would you like to log when you log in/log out? [y] "
+
+read logchoice
+
+if [ $logchoice == "y" ] ; then
+  echo "echo \"IN log at \$(date) as \$USER\" >> \$HOME/.loginlog" >> $HOME/.bashrc
+  echo "echo \"OUT log at \$(date) as \$USER\" >> \$HOME/.loginlog" >> $HOME/.bash_logout
+  echo
+  echo "Added logging. Once the install is done, it is recommended that you log out and log in again."
+  echo
 fi
 
 package_help() {
