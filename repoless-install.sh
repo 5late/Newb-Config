@@ -30,6 +30,7 @@ if [ -f "$alias_file" ]; then
   echo -n "Would you like to set up sticky notes? [y] "
   read stickynotechoice
   if [ $stickynotechoice == "y" ] ; then
+    mkdir $HOME/.config/newb/
     wget raw.githubusercontent.com/5late/Newb-Config/master/scripts/remindme.sh && chmod 755 remindme.sh
     wget raw.githubusercontent.com/5late/Newb-Config/master/scripts/check.sh && chmod 755 check.sh
     mv remindme.sh $HOME/.config/newb/ # copy the remind me script

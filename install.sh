@@ -28,6 +28,7 @@ if [ -f "$alias_file" ]; then
   echo -n "Would you like to set up sticky notes? [y] "
   read stickynotechoice
   if [ $stickynotechoice == "y" ] ; then
+    mkdir $HOME/.config/newb/
     cp scripts/remindme.sh $HOME/.config/newb/ # copy the remind me script
     cp scripts/check.sh $HOME/.config/newb/ # copy the check script
     echo "alias addnote=$HOME/.config/newb/remindme.sh" >> $HOME/.bash/aliases.bash
