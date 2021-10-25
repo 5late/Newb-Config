@@ -2,9 +2,18 @@
 
 These are some basic beginner scripts that will make your life in the Linux Command Line a bit easier and more relaxed.
 
-Some of the aliases here may make it a bit less scary to use the command line.
+Some of the aliases and scripts can aid in making newer users more comfortabe with the command line.
 
-To jump to the installation instructions, [click here.](#Installation)
+------------------
+|Table of Contents|
+| --------------- |
+| [Script Description](#scripts) |
+| --------------- |
+| [Alias Description](#aliases) |
+| --------------- |
+| [Installation](#installation) |
+| --------------- |
+| [Packages](#packages) |
 
 
 ## Why use these scripts?
@@ -31,6 +40,11 @@ There are also some useful utilites such as sticky notes which can be helpful fo
   - To search for a specific note, you can run ``check SEARCH TERM HERE``, the entire line containing the term will be returned.
   - To remove a specific note, run ``check rm REMOVE TERM HERE``, and all lines containing that term will be removed.
 
+#### logging scripts
+- Logs each time you log into/log out of your machine.
+- Logs are saved to ``$HOME/.loginlog``
+- Logs are completely silent
+
 ### Aliases
 
 #### cp and mv aliases
@@ -52,9 +66,11 @@ Run the following commands to install the scripts.
 
 ``cd Newb-Config``
 
-``bash install.sh``
+``chmod a+x install.sh``
 
-The script will prompt you for a response for creating a new alias. It is recommended you answer with 'y'.
+``./install.sh``
+
+The script will prompt you for responses as it installs and copies config files. The script is made to be as modular as possible, with each part being able to be installed without another.
 
 **INFO:** The script will *only* work with 'y'. Answers such as 'yes', 'ok', 'sure' will not be accepted.
 
@@ -62,7 +78,7 @@ After answering the prompts, the installation should be complete.
 
 ## Packages
 
-**READ:** If you do not want any of the packages, open the corresponding text file, and delete the line with the package you do not want.
+**READ:** If you do not want any specific one of the packages, open the corresponding text file, and delete the line with the package you do not want.
 
 #### General Installation
 
