@@ -43,7 +43,8 @@ There are also some useful utilites such as sticky notes which can be helpful fo
 
 #### showlast script & past alias
 - To see your past x shell commands, use ``past x``, where x is the number of past commands to show.
-  - x cannot be bigger than the ``.bash_history`` file line count
+  - x cannot be bigger than the ``history`` command line count
+- To run a past command, use ``past r x``, where x is the number beside the command (use ``past`` to see numbers)
 
 ### Aliases
 
