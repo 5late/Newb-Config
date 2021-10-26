@@ -56,6 +56,10 @@ There are also some useful utilites such as sticky notes which can be helpful fo
 
 ## Installation
 
+There are two ways to install the scripts. The recommended way is to clone the repo and use [#repo-install](#repo-install). If you do not want to clone the repo, use [#repoless-install.](#repoless-install)
+
+### Repo-Install
+
 Run the following commands to install the scripts.
 
 ``git clone https://github.com/5late/Newb-Config``
@@ -66,7 +70,19 @@ Run the following commands to install the scripts.
 
 ``./install.sh``
 
-The script will prompt you for responses as it installs and copies config files. The script is made to be as modular as possible, with each part being able to be installed without another.
+### Repoless-Install
+
+Run the following commands to get the files without cloning the repo.
+
+``wget https://me.slatedev.xyz/projects/newbconfig/install.sh``
+
+``chmod a+x install.sh``
+
+``./install.sh``
+
+You can remove the original ``install.sh`` script if you'd like.
+
+The installation script will prompt you for responses as it installs and copies config files. The script is made to be as modular as possible, with each part being able to be installed without another.
 
 **INFO:** The script will *only* work with 'y'. Answers such as 'yes', 'ok', 'sure' will not be accepted.
 
