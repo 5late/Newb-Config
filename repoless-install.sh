@@ -122,15 +122,18 @@ package_help() {
   echo "a		install all of the above"
   echo "h		print this help message"
 }
+
 # General installation packages, some of the packages are what I use in my fork of 0xMF's dotfiles.
 # It is recommended that you read #packages of the README before you install any packages from this script.
 
 general_install() {
+  wget raw.githubusercontent.com/5late/Newb-Config/master/general_install.txt
   if [ "$(cat /etc/*-release | grep -v VERSION | grep -vE \"^\#\" | grep ID)" == "ID=debian" ]; then # if debian
     xargs -rxa general_install.txt -- sudo apt install -y -- # read the text file to install all packages
   elif ["$(cat /etc/*-release | grep -v VERSION | grep -vE \"^\#\" | grep ID)" == "ID=arch" ]; then # if arch
     xargs -rxa general_install.txt -- sudo pacman -S -y -- # read the text file to install all packages
   fi
+  rm general_install.txt
 
   echo "-------------------------------------------------------------------------------------"
   echo "Package locate installed. Please run sudo updatedb to update the filesystem database."
@@ -142,11 +145,13 @@ general_install() {
 
 sysadmin_install() {
   general_install
+  wget raw.githubusercontent.com/5late/Newb-Config/master/sysadmin_install.txt
   if [ "$(cat /etc/*-release | grep -v VERSION | grep -vE \"^\#\" | grep ID)" == "ID=debian" ]; then
     xargs -rxa sysadmin_install.txt -- sudo apt install -y --
   elif ["$(cat /etc/*-release | grep -v VERSION | grep -vE \"^\#\" | grep ID)" == "ID=arch" ]; then
     xargs -rxa sysadmin_install.txt -- sudo pacman -S -y --
   fi
+  rm sysadmin_install.txt
 }
 
 # Network installation packages, all of the packages from general installation and sysadmin installation are installed as well
@@ -155,11 +160,13 @@ sysadmin_install() {
 network_install() {
   general_install
   sysadmin_install
+  wget raw.githubusercontent.com/5late/Newb-Config/master/network_install.txt
   if [ "$(cat /etc/*-release | grep -v VERSION | grep -vE \"^\#\" | grep ID)" == "ID=debian" ]; then
     xargs -rxa network_install.txt -- sudo apt install -y --
   elif ["$(cat /etc/*-release | grep -v VERSION | grep -vE \"^\#\" | grep ID)" == "ID=arch" ]; then
     xargs -rxa network_install.txt -- sudo pacman -S -y --
   fi
+  rm network_install.txt
 }
 
 # allow options to be used for the package installation
