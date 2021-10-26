@@ -1,4 +1,4 @@
-history_lc="$(wc -l < history)"
+history_lc="$(history | wc -l)"
 
 if [ $# -eq 0 ] ; then
   history | cut -d' ' -f 4- | tail -5
