@@ -41,6 +41,10 @@ There are also some useful utilites such as sticky notes which can be helpful fo
 - Logs are saved to ``$HOME/.loginlog``
 - Logs are completely silent
 
+#### showlast script & past alias
+- To see your past x bash commands, use ``past x commands``, where x is the number of past commands to show.
+  - x cannot be bigger than the ``.bash_history`` file line count
+
 ### Aliases
 
 #### cp and mv aliases
