@@ -40,6 +40,18 @@ if [ -f "$alias_file" ]; then
     sleep 1
     echo "Added the addnote and check script aliases. To learn more about these scripts and how to use them, read #scripts in the README"
   fi
+  echo -n "Would you like to set up the bash command history alias? [y] "
+  read historychoice
+  if [ $historychoice == "y" ] ; then
+    mkdir $HOME/.config/newb/
+    wget raw.githubusercontent.com/5late/Newb-Config/master/scripts/showlast.sh && chmod 755 showlast.sh
+    mv showlast.sh $HOME/.config/newb/ # copy the showlast script
+    echo "alias past=$HOME/.config/newb/showlast.sh" >> $HOME/.bash/aliases.bash
+    sleep 1
+    echo
+    echo "Added the past alias. See your past x bash commands using the past alias."
+    echo
+  fi
 else
   echo "0xMF dotfiles alias file not found, will append to $HOME/.bashrc" # if no alias file, use .bashrc
   echo -n "Would you like to use the recommened 'newrm' command? [y] "
@@ -74,6 +86,16 @@ else
     echo "alias check=$HOME/.config/newb/check.sh" >> $HOME/.bashrc
     sleep 1
     echo "Added the addnote and check script aliases. To learn more about these scripts and how to use them, read #scripts in the README"
+  fi
+  if [ $historychoice == "y" ] ; then
+    mkdir $HOME/.config/newb/
+    wget raw.githubusercontent.com/5late/Newb-Config/master/scripts/showlast.sh && chmod 755 showlast.sh
+    mv showlast.sh $HOME/.config/newb/ # copy the showlast script
+    echo "alias past=$HOME/.config/newb/showlast.sh" >> $HOME/.bashrc
+    sleep 1
+    echo
+    echo "Added the alias for past bash history commands."
+    echo
   fi
 fi
 
