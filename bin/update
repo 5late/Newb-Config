@@ -1,0 +1,66 @@
+location="$PWD"
+parent_dir="$(dirname "$PWD")"
+config_files=$HOME/.config/newb/
+
+echo "Currently in $location, parent directory is $parent_dir"
+
+sleep 1
+
+repo_mode(){
+  echo "Running in REPO mode..."
+
+  cd $parent_dir && git pull
+
+  echo "Pulled new changes"
+
+  cd scripts/
+
+  echo "Preparing to update all scripts..."
+
+  sleep 1
+
+  cp -v ./* $config_files
+
+  echo "Copied all files to config location $config_files, you are up-to-date!"
+}
+
+repoless_mode(){
+  echo "Running in REPOLESS mode..."
+
+  mkdir tmp-nc
+
+  echo "Made temporary directory named tmp-nc"
+
+  cd tmp-nc
+
+  echo "Preparing to downlaod all scripts..."
+
+  wget raw.githubusercontent.com/5late/Newb-Config/master/scripts/check.sh
+  wget raw.githubusercontent.com/5late/Newb-Config/master/scripts/logrm.sh
+  wget raw.githubusercontent.com/5late/Newb-Config/master/scripts/newrm.sh
+  wget raw.githubusercontent.com/5late/Newb-Config/master/scripts/remindme.sh
+  wget raw.githubusercontent.com/5late/Newb-Config/master/scripts/showlast.sh
+
+  mv -v ./* $config_files && cd .. && chmod 755 tmp-nc && rm -r tmp-nc
+
+  echo "Moved all files to config location $config_files, you are up to date!"
+}
+
+if [ $# -eq 0 ]; then
+  echo -n "Would you like to update in repo or repoless mode? [r/rl] "
+  read repochoice
+
+  if [ "$repochoice" == "r" ]; then
+    repo_mode
+  elif [ "$repochoice" == "rl" ]; then
+    repoless_mode
+  fi
+fi
+
+if [ "$1" == "r" ]; then
+  repo_mode
+fi
+
+if [ "$1" == "rl" ]; then
+  repoless_mode
+fi
