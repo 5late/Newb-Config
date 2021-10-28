@@ -9,6 +9,7 @@ if [ -f "$alias_file" ]; then
   echo "Copying scripts required to update Newb-Config..."
   mkdir $HOME/.config/newb/
   cp ./update $HOME/.config/newb/
+  echo "alias ncupdate=$HOME/.config/newb/update" >> $HOME/.bash/aliases.bash
   echo "Config directory created, and update script copied, continuing with installation..."
   sleep 1
   echo -n "Would you like to use the recommended 'newrm' command? [y] "
@@ -50,10 +51,11 @@ if [ -f "$alias_file" ]; then
     echo
   fi
 else
-  echo "0xMF dotfiles alias file not found, will append to $HOME/.bashrc" # if no alias file, use .bashrc
+  echo "0xMF dotfiles alias file NOT found, will append to $HOME/.bashrc" # if no alias file, use .bashrc
   echo "Copying scripts required to update Newb-Config..."
   mkdir $HOME/.config/newb/
   cp -v ./update $HOME/.config/newb/
+  echo "alias ncupdate=$HOME/.bash/aliases.bash" >> $HOME/.bashrc
   echo "Directory created and update scripts copied, continuing with installation..."
   echo -n "Would you like to use the recommened 'newrm' command? [y] "
   read newrmchoice
