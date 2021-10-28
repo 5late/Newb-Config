@@ -108,7 +108,7 @@ package_help() {
   echo
   echo "INSTALLATION OPTIONS"
   echo "options:"
-  echo "g 		install general packages"
+  echo "g		install general packages"
   echo "s		install sysadmin packages"
   echo "n		install networking packages"
   echo "a		install all of the above"
