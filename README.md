@@ -9,6 +9,7 @@ Some of the aliases and scripts can aid in making newer users more comfortabe wi
 | [Script Description](#scripts) |
 | [Alias Description](#aliases) |
 | [Installation](#installation) |
+| [Updating](#updating) |
 | [Packages](#packages) |
 
 
@@ -92,6 +93,31 @@ The installation script will prompt you for responses as it installs and copies 
 **INFO:** The script will *only* work with 'y'. Answers such as 'yes', 'ok', 'sure' will not be accepted.
 
 After answering the prompts, the installation should be complete.
+
+## Updating
+
+### Repoless (default)
+
+Updating Newb-Config to the newest changes on GitHub is very simple. When installed, Newb-Config automatically copies scripts and creates an alias named ``ncupdate``.
+
+Running ``ncupdate`` from anywhere in the system will automatically update Newb-Config by creating a temporary directory (``tmp-nc``), and downloading files into the directory.
+
+The script then copies all of the new scripts to the config directory located in the users home, and deletes the temporary directory.
+
+This process is known as REPOLESS mode, and is the recommended way of updating Newb-Config.
+
+### Repo
+
+To update Newb-Config using REPO mode, you will be required to change directory into either ``Newb-Config`` or ``Newb-Config/bin``.
+
+Once you are in the directory, directly run the executable script with ``bin/update`` or ``./update``.
+
+The script will prompt you to choose REPOLESS or REPO mode. To use REPO mode, enter ``r``. (You can skip this step by running the command with the argument ``r`` - ``bin/install r``.)
+
+The script will ``git pull`` any new changes, and copy all files to the config directory in the users home.
+
+This method is useful to keep the repository up to date, but it can only be run from the ``Newb-Config`` or ``Newb-Config/bin`` directories.
+
 
 ## Packages
 
