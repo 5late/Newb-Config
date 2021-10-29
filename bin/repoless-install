@@ -10,8 +10,8 @@ if [ -f "$alias_file" ]; then
   echo "Downloading and copying files needed to update Newb-Config"
   mkdir $HOME/.config/newb/ && chmod 755 $HOME/.config/newb/
   wget raw.githubusercontent.com/5late/Newb-Config/master/bin/update
-  mv update $HOME/.config/newb/ && chmod 755 update
-  echo "alias ncupdate='$HOME/.config/newb/update rl' >> $alias_file
+  mv update $HOME/.config/newb/
+  echo "alias ncupdate='$HOME/.config/newb/update rl'" >> $alias_file
   echo "Copied & moved update script to $HOME/.config/newb/, continuing with installation..."
   echo -n "Would you like to use the recommended 'newrm' command? [y] "
   read newrmchoice
