@@ -1,3 +1,4 @@
+#!/bin/sh
 # 0xMF dotfiles aliases file
 alias_file=$HOME/.bash/aliases.bash
 # Get location of scripts within filesystem

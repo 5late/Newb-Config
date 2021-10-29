@@ -1,3 +1,4 @@
+#!/bin/sh
 location="$PWD"
 parent_dir="$(dirname "$PWD")"
 current_dir="$(basename "$PWD")"

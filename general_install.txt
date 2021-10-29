@@ -7,3 +7,4 @@ python3-pip
 htop
 fakeroot
 locate
+shc
