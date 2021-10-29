@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 location="$PWD"
 parent_dir="$(dirname "$PWD")"
 current_dir="$(basename "$PWD")"
@@ -28,6 +28,8 @@ repo_mode(){
 
   sleep 1
 
+  chmod 755 ./*
+
   cp -v ./* $config_files
 
   echo "Copied all files to config location $config_files, you are up-to-date!"
@@ -49,6 +51,8 @@ repoless_mode(){
   wget raw.githubusercontent.com/5late/Newb-Config/master/scripts/newrm.sh
   wget raw.githubusercontent.com/5late/Newb-Config/master/scripts/remindme.sh
   wget raw.githubusercontent.com/5late/Newb-Config/master/scripts/showlast.sh
+
+  chmod 755 ./*
 
   mv -v ./* $config_files && cd .. && chmod 755 tmp-nc && rm -r tmp-nc
 

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 echo "Extra settings script"
 echo
 alias_file=$HOME/.bashrc
