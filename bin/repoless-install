@@ -6,10 +6,15 @@ newb_location="$PWD"
 # If 0xMF dotfiles file exists
 if [ -f "$alias_file" ]; then
   echo "Found 0xMF dotfile alias file."
+  echo "Downloading and copying files needed to update Newb-Config"
+  mkdir $HOME/.config/newb/ && chmod 755 $HOME/.config/newb/
+  wget raw.githubusercontent.com/5late/Newb-Config/master/bin/update
+  mv update $HOME/.config/newb/ && chmod 755 update
+  echo "alias ncupdate='$HOME/.config/newb/update rl' >> $alias_file
+  echo "Copied & moved update script to $HOME/.config/newb/, continuing with installation..."
   echo -n "Would you like to use the recommended 'newrm' command? [y] "
   read newrmchoice
   if [ $newrmchoice == "y" ]; then
-    mkdir $HOME/.config/newb/ # make directory for the new rm commands
     wget raw.githubusercontent.com/5late/Newb-Config/master/scripts/newrm.sh && chmod 755 newrm.sh
     wget raw.githubusercontent.com/5late/Newb-Config/master/scripts/logrm.sh && chmod 755 logrm.sh
     mv newrm.sh $HOME/.config/newb/ # copy the newrm script
@@ -30,7 +35,6 @@ if [ -f "$alias_file" ]; then
   echo -n "Would you like to set up sticky notes? [y] "
   read stickynotechoice
   if [ $stickynotechoice == "y" ] ; then
-    mkdir $HOME/.config/newb/
     wget raw.githubusercontent.com/5late/Newb-Config/master/scripts/remindme.sh && chmod 755 remindme.sh
     wget raw.githubusercontent.com/5late/Newb-Config/master/scripts/check.sh && chmod 755 check.sh
     mv remindme.sh $HOME/.config/newb/ # copy the remind me script
@@ -43,7 +47,6 @@ if [ -f "$alias_file" ]; then
   echo -n "Would you like to set up the bash command history alias? [y] "
   read historychoice
   if [ $historychoice == "y" ] ; then
-    mkdir $HOME/.config/newb/
     wget raw.githubusercontent.com/5late/Newb-Config/master/scripts/showlast.sh && chmod 755 showlast.sh
     mv showlast.sh $HOME/.config/newb/ # copy the showlast script
     echo "alias past=$HOME/.config/newb/showlast.sh" >> $HOME/.bash/aliases.bash
@@ -54,10 +57,16 @@ if [ -f "$alias_file" ]; then
   fi
 else
   echo "0xMF dotfiles alias file not found, will append to $HOME/.bashrc" # if no alias file, use .bashrc
+  echo "Installing scripts needed for Newb-Config to update."
+  mkdir $HOME/.config/newb/ && chmod 755 $HOME/.config/newb/
+  wget raw.githubusercontent.com/5late/Newb-Config/master/bin/update
+  mv update $HOME/.config/newb/ && chmod update 755
+  echo "alias ncupdate='$HOME/.config/newb/update rl'" >> $HOME/.bashrc
+  echo "Installed and copied the update script. Run command ncupdate to update NC scripts. Continuing with installation..."
+  sleep 1
   echo -n "Would you like to use the recommened 'newrm' command? [y] "
   read newrmchoice
   if [ $newrmchoice == "y" ]; then
-    mkdir $HOME/.config/newb/ # make directory for the new rm commands
     wget raw.githubusercontent.com/5late/Newb-Config/master/scripts/newrm.sh && chmod 755 newrm.sh
     wget raw.githubusercontent.com/5late/Newb-Config/master/scripts/logrm.sh && chmod 755 logrm.sh
     mv newrm.sh $HOME/.config/newb/ # copy the newrm script
@@ -88,7 +97,6 @@ else
     echo "Added the addnote and check script aliases. To learn more about these scripts and how to use them, read #scripts in the README"
   fi
   if [ $historychoice == "y" ] ; then
-    mkdir $HOME/.config/newb/
     wget raw.githubusercontent.com/5late/Newb-Config/master/scripts/showlast.sh && chmod 755 showlast.sh
     mv showlast.sh $HOME/.config/newb/ # copy the showlast script
     echo "alias past=$HOME/.config/newb/showlast.sh" >> $HOME/.bashrc
