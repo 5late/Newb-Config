@@ -13,6 +13,13 @@ if [ -f "$alias_file" ]; then
   echo "alias ncupdate='$HOME/.config/newb/update rl'" >> $HOME/.bash/aliases.bash
   echo "Config directory created, and update script copied, continuing with installation..."
   sleep 1
+  if [[ $(find / -name "0xMF-dotfiles" 2>/dev/null) ]]; then
+    echo "$(find / -name "0xMF-dotfiles" 2>/dev/null)"
+    echo "Found dotfiles! Creating alias to update dotfiles..."
+    echo "alias dotupdate='cd $(dirname "$(dirname "$(find / -name "0xMF-dotfiles" 2>/dev/null)")") && git pull'" >> $alias_file
+    echo "Created alias to update dotfiles. Continuing with installation..."
+    sleep 1
+  fi
   echo -n "Would you like to use the recommended 'newrm' command? [y] "
   read newrmchoice
   if [ $newrmchoice == "y" ]; then
