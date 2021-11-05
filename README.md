@@ -15,9 +15,9 @@ Some of the aliases and scripts can aid in making newer users more comfortabe wi
 
 ## Why use these scripts?
 
-The contents of this repo contain scripts and aliases that may be useful to newbies in Linux. Commands such as ``rm`` can be intimidating due to their nature of being destructive and irreversible.
+The contents of this repo contain scripts and aliases that may be useful to newbies in Linux.
 
-There are also some useful utilites such as sticky notes which can be helpful for productivity.
+There are also some useful utilites such as sticky notes and ``past`` which can be helpful for productivity.
 
 ## Manual
 
