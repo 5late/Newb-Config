@@ -16,7 +16,7 @@ if [ -f "$alias_file" ]; then
   if [[ $(find / -name "0xMF-dotfiles" 2>/dev/null) ]]; then
     echo "$(find / -name "0xMF-dotfiles" 2>/dev/null)"
     echo "Found dotfiles! Creating alias to update dotfiles..."
-    echo "alias dotupdate='cd $(dirname "$(dirname "$(find / -name "0xMF-dotfiles" 2>/dev/null)")") && git pull'" >> $alias_file
+    echo "alias dotupdate='cd $(dirname "$(dirname "$(find / -name "0xMF-dotfiles" 2>/dev/null)")") && git pull && cd --'" >> $alias_file
     echo "Created alias to update dotfiles. Continuing with installation..."
     sleep 1
   fi
