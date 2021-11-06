@@ -60,6 +60,9 @@ There are also some useful utilites such as sticky notes and ``past`` which can 
 - The installer in the script installs basic packages that most users will want on their system.
 - **Please read [#packages](#packages) to see what packages are being installed.**
 
+#### dotupdate
+- If you have my fork of [dotfiles](https://github.com/5late/dotfiles), you can run ``dotupdate`` to automatically update them to the latest bleeding-edge changes
+
 ## Installation
 
 There are two ways to install the scripts. The recommended way is to clone the repo and use [#repo-install](#repo-install). If you do not want to clone the repo, use [#repoless-install.](#repoless-install)
