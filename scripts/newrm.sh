@@ -29,7 +29,7 @@ fi
 for arg
 do
   newname="$archivedir/$(date "+%S.%M.%H.%d.%m")."current".$(basename "$arg")"
-  if [[ -f "$arg" -o -d "$arg" ]]; then
+  if [ -f "$arg" -o -d "$arg" ]; then
     $copy "$arg" "$newname"
   fi
 done
