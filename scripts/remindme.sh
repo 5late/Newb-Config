@@ -2,7 +2,7 @@
 
 rememberfile="$HOME/.remember"
 
-if [ $# -eq 0 ] ; then
+if [[ $# -eq 0 ]] ; then
   echo "Enter content to remember. Exit with ^D: "
   cat - >> $rememberfile
 else
