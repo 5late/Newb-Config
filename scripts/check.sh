@@ -3,11 +3,11 @@
 
 rememberfile="$HOME/.remember"
 
-if [[ ! -f $rememberfile ]] ; then
+if [ ! -f $rememberfile ] ; then
   echo "$0: No remember file found."
   exit 1
 fi
-if [[ $# -eq 0 ]] ; then
+if [ $# -eq 0 ] ; then
   $EDITOR $rememberfile
   exit 0
 fi
